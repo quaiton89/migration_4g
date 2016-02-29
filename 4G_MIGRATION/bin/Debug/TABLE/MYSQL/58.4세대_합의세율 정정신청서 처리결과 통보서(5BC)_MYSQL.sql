@@ -1,0 +1,25 @@
+
+/* 수신_합의세율 정정신청서 처리결과 통보서 */
+
+DROP TABLE IF EXISTS CNSRSLT;
+
+
+/* 수신_합의세율 정정신청서 처리결과 통보서 */
+CREATE TABLE CNSRSLT (
+	CNSRSLT_TONGBO_DATETIME VARCHAR(12) NOT NULL,  /* 통보일시 */
+	CNSRSLT_YEAR VARCHAR(4) NOT NULL,  /* 년도 */
+	CNSRSLT_JECHLNO VARCHAR(6) NOT NULL,  /* 제출번호 */
+	CNSRSLT_SEUNGIN_DATE VARCHAR(8),  /* 승인(기각)일자 */
+	CNSRSLT_GUBUN CHAR(1),  /* 정정처리구분 */
+	CNSRSLT_SEGWAN CHAR(3),  /* 세관 */
+	CNSRSLT_GWA CHAR(2),  /* 과 */
+	CNSRSLT_SAYU VARCHAR(150),  /* 사유 */
+	CNSRSLT_CHASU CHAR(3),  /* 정정차수 */
+	CNSRSLT_DAMDANG_NAME VARCHAR(12),  /* 정정처리담당자명 */
+	CNSRSLT_RESULT CHAR(1), /* 정정처리결과 */
+	PRIMARY KEY (
+			CNSRSLT_TONGBO_DATETIME ASC, 
+			CNSRSLT_YEAR ASC, 
+			CNSRSLT_JECHLNO ASC
+		)
+);

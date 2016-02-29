@@ -1,0 +1,131 @@
+
+/* 송신_포괄가격신고서 공통사항 */
+
+DROP TABLE IF EXISTS CUSVAL5SM;
+
+
+/* 송신_포괄가격신고서 공통사항 */
+CREATE TABLE CUSVAL5SM (
+	SMKEY VARCHAR(10) NOT NULL,  /* 관리번호 */
+	JYY VARCHAR(4) NOT NULL,  /* 년도 */
+	JNO VARCHAR(5),  /* 제출번호 */
+	APPRCODE VARCHAR(5),  /* 신고번호 */
+	SENDGBN CHAR(2),  /* SENDGBN */
+	WRITTENDATE VARCHAR(8),  /* 작성일자 */
+	DOCTYPE CHAR(1),  /* 서식선택 */
+	CSTMSCODE CHAR(3),  /* 세관 */
+	CSTMSDEPTCODE CHAR(2),  /* 과 */
+	SELLERCOMPANY VARCHAR(150),  /* 판매자상호 */
+	SELLERADDRESS VARCHAR(200),  /* 판매자주소 */
+	SELLERNAME VARCHAR(150),  /* 판매자성명 */
+	BUYERCOMPANY VARCHAR(150),  /* 구매자상호 */
+	BUYERADDRESS VARCHAR(200),  /* 구매자주소 */
+	BUYERNAME VARCHAR(150),  /* 구매자성명 */
+	CORPNO VARCHAR(10),  /* 신고자사업자등록번호 */
+	WRITERPLACE VARCHAR(30),  /* 실무자직위 */
+	WRITERNAME VARCHAR(12),  /* 실무자성명 */
+	WRITERPHONENUMBER VARCHAR(40),  /* 실무자전화번호 */
+	DECIDEDATE VARCHAR(8),  /* 결정공문일자 */
+	DECIDENUMBER VARCHAR(40),  /* 결정공문번호 */
+	DECIDEDOCNAME VARCHAR(60),  /* 결정공문서제목 */
+	C5A CHAR(1),  /* C5A */
+	C5B CHAR(2),  /* C5B */
+	C5C VARCHAR(1),  /* C5C */
+	C5D VARCHAR(1),  /* C5D */
+	C5E VARCHAR(2),  /* C5E */
+	C5E_ETC VARCHAR(50),  /* C5E_기타 */
+	C6A CHAR(1),  /* C6A */
+	C6B CHAR(1),  /* C6B */
+	C7A CHAR(1),  /* C7A */
+	C7B CHAR(1),  /* C7B */
+	C8A CHAR(1),  /* C8A */
+	C8B CHAR(1),  /* C8B */
+	C8C CHAR(1),  /* C8C */
+	C8D CHAR(1),  /* C8D */
+	C9A CHAR(1),  /* C9A */
+	C9B CHAR(1),  /* C9B */
+	C10A CHAR(1),  /* C10A */
+	C10B CHAR(1),  /* C10B */
+	C10C CHAR(1),  /* C10C */
+	C10D CHAR(1),  /* C10D */
+	C11A CHAR(1),  /* C11A */
+	C11B CHAR(1),  /* C11B */
+	C11C CHAR(1),  /* C11C */
+	C11D CHAR(1),  /* C11D */
+	D5 CHAR(2),  /* D5 */
+	D6A VARCHAR(50),  /* D6A */
+	D6B VARCHAR(50),  /* D6B */
+	D7AA CHAR(1),  /* D7AA */
+	D7AB CHAR(1),  /* D7AB */
+	D7AC CHAR(1),  /* D7AC */
+	D7AD CHAR(1),  /* D7AD */
+	D7AE CHAR(1),  /* D7AE */
+	D7AF CHAR(1),  /* D7AF */
+	D7AG CHAR(1),  /* D7AG */
+	D7AGOTHERREASON VARCHAR(50),  /* D7AG_기타사유 */
+	D7BA CHAR(1),  /* D7BA */
+	D7BB CHAR(1),  /* D7BB */
+	D7BC CHAR(1),  /* D7BC */
+	D7BD CHAR(1),  /* D7BD */
+	D7BE CHAR(1),  /* D7BE */
+	D7BEOTHERREASON VARCHAR(50),  /* D7BE_기타사유 */
+	SENDRESULT VARCHAR(4),  /* 송신결과 */
+	RECVRESULT VARCHAR(4),  /* 수신결과 */
+	JUBSUDATE VARCHAR(8),  /* 접수일자 */
+	LICENSEDATE VARCHAR(8),  /* 면허일자 */
+	LASTEDITDATETIME VARCHAR(16),  /* 최종수정일자 */
+	FAXSEND CHAR(1),  /* 팩스전송결과 */
+	WEBSEND CHAR(1),  /* 웹전송여부 */
+	SAVECHK CHAR(1),  /* 오류검증여부 */
+	CSTMSREGNO VARCHAR(12),  /* 세관등록번호 */
+	CSTMSCLERKNAME VARCHAR(12),  /* 세관담당자 */
+	USABLEENDDATE VARCHAR(8),  /* 유효기간종료일 */
+	PONO VARCHAR(40),  /* 구매주문번호 */
+	PODATE VARCHAR(8),  /* 구매주문일자 */
+	NAPSE_SANGHO VARCHAR(28),  /* 납세자상호 */
+	CHARGEPLACE VARCHAR(30),  /* 책임자직위 */
+	CHARGENAME VARCHAR(12),  /* 책임자성명 */
+	CHARGETEL VARCHAR(40),  /* 책임자전화번호 */
+	PROVSAYUN VARCHAR(1),  /* PROVSAYUN */
+	PROVSAYUO VARCHAR(1),  /* PROVSAYUO */
+	PROVSAYUP VARCHAR(1),  /* PROVSAYUP */
+	PROVSAYUQ VARCHAR(1),  /* PROVSAYUQ */
+	SAUP_GBN VARCHAR(2), /* 사업자구분부호 */
+	PRIMARY KEY (
+			SMKEY ASC
+		)
+);
+
+/* IXSMWRITTENDATE */
+CREATE INDEX IXSMWRITTENDATE ON CUSVAL5SM (
+	WRITTENDATE ASC
+);
+
+/* IXSMJNO */
+CREATE INDEX IXSMJNO ON CUSVAL5SM (
+	JYY ASC, 
+	JNO ASC
+);
+
+
+/* 송신_포괄가격신고서 품목사항 */
+
+DROP TABLE IF EXISTS CUSVAL5SMDTL;
+
+
+/* 송신_포괄가격신고서 품목사항 */
+CREATE TABLE CUSVAL5SMDTL (
+	SMDTLKEY VARCHAR(10) NOT NULL,  /* 관리번호 */
+	SMDTLSEQ CHAR(3) NOT NULL,  /* 순번 */
+	SMDTLHSCD VARCHAR(10),  /* 세번부호 */
+	SMDTLPUM VARCHAR(50),  /* 품명 */
+	SMDTLDEALPUM VARCHAR(50),  /* 거래품명 */
+	SMDTLPRODUCTNAME VARCHAR(30),  /* 상표명 */
+	SMDTLMODEL VARCHAR(90),  /* 모델규격 */
+	SMDTLSUNGBOON VARCHAR(70), /* 성분 */
+	PRIMARY KEY (
+			SMDTLKEY ASC, 
+			SMDTLSEQ ASC
+		)
+);
+

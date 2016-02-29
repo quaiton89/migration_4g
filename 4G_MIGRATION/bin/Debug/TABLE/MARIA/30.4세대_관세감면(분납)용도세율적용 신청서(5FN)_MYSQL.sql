@@ -1,0 +1,110 @@
+
+/* 송신_관세감면분납용도세율적용신청서 공통사항 */
+
+DROP TABLE IF EXISTS GWNGAMMS;
+
+
+/* 송신_관세감면분납용도세율적용신청서 공통사항 */
+CREATE TABLE GWNGAMMS (
+	GAMMS_YEAR VARCHAR(4) NOT NULL,  /* 년도 */
+	GAMMS_JECHL_NO VARCHAR(6) NOT NULL,  /* 제출번호 */
+	GAMMS_SINGO_NO VARCHAR(15),  /* 수입신고번호 */
+	GAMMS_DG CHAR(1),  /* 체크디지트 */
+	GAMMS_TCANO VARCHAR(5),  /* 신고인부호 */
+	GAMMS_SEGWAN CHAR(3),  /* 세관 */
+	GAMMS_GWA CHAR(2),  /* 과 */
+	GAMMS_EXPO_YJ_SEGWAN CHAR(3),  /* 수출예정세관 코드 */
+	GAMMS_EXPO_YJ_DATE VARCHAR(8),  /* 수출예정일자 */
+	GAMMS_EXPO_NATION_CODE CHAR(2),  /* 수출예정 국가코드 */
+	GAMMS_EXPO_NATION_NAME VARCHAR(30),  /* 수출예정 국가상호 */
+	GAMMS_SINGO_DATE VARCHAR(8),  /* 신고일자 */
+	GAMMS_SINGOJA_CODE VARCHAR(4),  /* 신고자코드 */
+	GAMMS_SINGOJA_SANGHO VARCHAR(28),  /* 신고자상호 */
+	GAMMS_SINGOJA_NAME VARCHAR(16),  /* 신고자대표자성명 */
+	GAMMS_SINGOJA_JUSO VARCHAR(70),  /* 신고자 주소 */
+	GAMMS_SINGOJA_TONG VARCHAR(15),  /* 신고자 통관고유부호 */
+	GAMMS_SINGOJA_SAUP VARCHAR(13),  /* 신고자 사업자번호 */
+	GAMMS_SINGOJA_JONG VARCHAR(30),  /* 신고자 사업종류 */
+	GAMMS_SEUNGIN_DATE VARCHAR(8),  /* 승인일자 */
+	GAMMS_DAMDANG_NAME VARCHAR(12),  /* 세관담당자성명 */
+	GAMMS_DAMDANG_CODE VARCHAR(6),  /* 세관담당자코드 */
+	GAMMS_SEND_RESULT VARCHAR(4),  /* 송신결과 */
+	GAMMS_RECV_RESULT VARCHAR(4),  /* 수신결과 */
+	GAMMS_JUBSU_DATE VARCHAR(12),  /* 접수일자 */
+	GAMMS_JUBSU_NO VARCHAR(15),  /* 접수번호 */
+	LOG_TYPE CHAR(1),  /* LOG_TYPE */
+	FAX_SEND VARCHAR(4),  /* 팩스전송 구분 */
+	GAMMS_NABSE_SANGHO VARCHAR(28),  /* 납세의무자 상호 */
+	GAMMS_NABSE_FAX VARCHAR(14),  /* 납세의무자 FAX */
+	GAMMS_NABSE_HP VARCHAR(14),  /* 납세의무자 휴대폰 */
+	GAMMS_NABSE_EMAIL VARCHAR(100),  /* 납세의무자 이메일 */
+	GAMMS_NABSE_GBNBU VARCHAR(2),  /* 납세의무자 식별번호 구분부호 */
+	GAMMS_GWANSE_SANGHO VARCHAR(28),  /* 관세사 상호 */
+	GAMMS_GWANSE_FAX VARCHAR(14),  /* 관세사 FAX */
+	GAMMS_GWANSE_HP VARCHAR(14),  /* 관세사 휴대폰 */
+	GAMMS_GWANSE_EMAIL VARCHAR(100), /* 관세사 이메일 */
+	PRIMARY KEY (
+			GAMMS_YEAR ASC, 
+			GAMMS_JECHL_NO ASC
+		)
+)ENGINE=MyISAM DEFAULT CHARSET=euckr;
+
+/* SINGO_DATE_IDX */
+CREATE INDEX SINGO_DATE_IDX ON GWNGAMMS (
+	GAMMS_SINGO_DATE ASC
+);
+
+
+/* 송신_관세감면분납용도세율적용신청서 란사항 */
+
+DROP TABLE IF EXISTS GWNGAMLN;
+
+
+/* 송신_관세감면분납용도세율적용신청서 란사항 */
+CREATE TABLE GWNGAMLN (
+	GAMLN_YEAR VARCHAR(4) NOT NULL,  /* 년도 */
+	GAMLN_JECHL_NO VARCHAR(6) NOT NULL,  /* 제출번호 */
+	GAMLN_LAN VARCHAR(3) NOT NULL,  /* 란번호 */
+	GAMLN_SAHU CHAR(1),  /* 사후관리대상여부 */
+	GAMLN_SINCHUNG_GBN CHAR(1),  /* 신청구분 */
+	GAMLN_BUNAP_BUHO VARCHAR(12),  /* 감면분납부호 */
+	GAMLN_HS VARCHAR(10),  /* 세번부호 */
+	GAMLN_PUM VARCHAR(50),  /* 품명 */
+	GAMLN_GUKYK VARCHAR(50),  /* 규격 */
+	GAMLN_MODEL VARCHAR(30),  /* 모델명 */
+	GAMLN_MODEL_NO VARCHAR(50),  /* 제조일련번호 */
+	GAMLN_SU FLOAT,  /* 수량 */
+	GAMLN_SU_DANWI CHAR(3),  /* 수량단위 */
+	GAMLN_SINGO_AMT FLOAT,  /* 신고금액 */
+	GAMLN_GAM_AMT FLOAT,  /* 감면액 */
+	GAMLN_JUSO VARCHAR(150),  /* 사용설치장소 주소 */
+	GAMLN_POST VARCHAR(6),  /* 사용설치장소 우편번호 */
+	GAMLN_TEL VARCHAR(12),  /* 사용설치장소 전화번호 */
+	GAMLN_YONGDO_GBN VARCHAR(2),  /* 용도 구분 */
+	GAMLN_YONGDO VARCHAR(30),  /* 용도 명 */
+	GAMLN_SAHU_SEGWAN CHAR(3),  /* 사후과리세관 코드 */
+	GAMLN_BIGO TEXT,  /* 특이사항 */
+	GAMLN_EXPO_YJ_SEGWAN CHAR(3),  /* 수출예정세관 */
+	GAMLN_EXPO_YJ_DATE VARCHAR(8),  /* 수출예정일자 */
+	GAMLN_EXPO_NATION_CODE CHAR(2),  /* 수출예정국가코드 */
+	GAMLN_EXPO_NATION_NAME VARCHAR(30),  /* 수출예정국가명 */
+	GAMLN_SIN_GBN CHAR(1),  /* GAMLN_SIN_GBN */
+	GAMLN_GWANRULEGBN CHAR(2),  /* 감면대상별표 구분 */
+	GAMLN_GWANRULESEQ CHAR(3),  /* 감면대상별표 연번 */
+	GAMLN_GWANRULEHONO CHAR(2),  /* 감면대상별표 규격내 호번호 */
+	GAMLN_ROADNO VARCHAR(12),  /* 설치장소 도로명코드 */
+	GAMLN_BULIDNO VARCHAR(25),  /* 설치장소 건물관리번호 */
+	GAMLN_JUSO_SANGSE VARCHAR(150), /* 설치장소 기본주소 */
+	PRIMARY KEY (
+			GAMLN_YEAR ASC, 
+			GAMLN_JECHL_NO ASC, 
+			GAMLN_LAN ASC
+		)
+)ENGINE=MyISAM DEFAULT CHARSET=euckr;
+
+
+/* IX_GAMLN_EXPO_YJ_DATE */
+CREATE INDEX IX_GAMLN_EXPO_YJ_DATE ON GWNGAMLN (
+	GAMLN_EXPO_YJ_DATE ASC
+);
+

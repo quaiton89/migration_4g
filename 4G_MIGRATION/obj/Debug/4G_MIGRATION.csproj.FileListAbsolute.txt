@@ -1,0 +1,8 @@
+D:\mkim\Projects\4G_MIGRATION\4G_MIGRATION\bin\Debug\4G_MIGRATION.exe
+D:\mkim\Projects\4G_MIGRATION\4G_MIGRATION\bin\Debug\4G_MIGRATION.pdb
+D:\mkim\Projects\4G_MIGRATION\4G_MIGRATION\obj\Debug\_4G_MIGRATION.Form1.resources
+D:\mkim\Projects\4G_MIGRATION\4G_MIGRATION\obj\Debug\_4G_MIGRATION.Properties.Resources.resources
+D:\mkim\Projects\4G_MIGRATION\4G_MIGRATION\obj\Debug\4G_MIGRATION.csproj.GenerateResource.Cache
+D:\mkim\Projects\4G_MIGRATION\4G_MIGRATION\obj\Debug\4G_MIGRATION.exe
+D:\mkim\Projects\4G_MIGRATION\4G_MIGRATION\obj\Debug\4G_MIGRATION.pdb
+D:\mkim\Projects\4G_MIGRATION\4G_MIGRATION\obj\Debug\4G_MIGRATION.csprojResolveAssemblyReference.cache

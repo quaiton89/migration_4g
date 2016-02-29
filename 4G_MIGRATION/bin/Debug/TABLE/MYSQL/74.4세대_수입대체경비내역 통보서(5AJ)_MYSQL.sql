@@ -1,0 +1,47 @@
+
+/* 수신_수출대체경비고지내역(5AJ) 공통사항 */
+
+DROP TABLE IF EXISTS GYENGBI;
+
+
+/* 수신_수입대체경비고지내역(5AJ) 공통사항 */
+CREATE TABLE GYENGBI (
+	GYENGBI_TONGJI_NO VARCHAR(12) NOT NULL,  /* 통지번호 */
+	GYENGBI_TCANO VARCHAR(5),  /* 관세사부호 */
+	GYENGBI_SAUP VARCHAR(13),  /* 사업자번호 */
+	GYENGBI_SUCHULIP_GBN CHAR(2),  /* 수출입구분 */
+	GYENGBI_JECHLNO VARCHAR(15),  /* 임시개청 제출번호 */
+	GYENGBI_RECV_DATE VARCHAR(8),  /* 통보일자 */
+	GYENGBI_SANGHO VARCHAR(28),  /* 상호 */
+	GYENGBI_FEE_GBN CHAR(2),  /* 수수료구분 */
+	GYENGBI_SHIPAIRCOMCD VARCHAR(4),  /* 선사항공사부호 */
+	GYENGBI_UNSU_GIGWAN VARCHAR(6), /* 보세운송업자부호 */
+	PRIMARY KEY (
+			GYENGBI_TONGJI_NO ASC
+		)
+);
+
+
+/* 수신_수출대체경비고지내역(5AJ) 상세 */
+
+DROP TABLE IF EXISTS GYENGBI1;
+
+
+/* 수신_수출대체경비고지내역(5AJ) 상세 */
+CREATE TABLE GYENGBI1 (
+	GYENGBI1_TONGJI_NO VARCHAR(12) NOT NULL,  /* 통지번호 */
+	GYENGBI1_LAN VARCHAR(3) NOT NULL,  /* 순번 */
+	GYENGBI1_SINGO_NO VARCHAR(18),  /* 신고번호 */
+	GYENGBI1_GAECHUNG_TIME VARCHAR(30),  /* 임시개청일시 */
+	GYENGBI1_GAECHUNG_SUSU FLOAT,  /* 임시개청수수료 */
+	GYENGBI1_PACHUL_SUSU FLOAT,  /* 파출수수료 */
+	GYENGBI1_ETC_FEE FLOAT,  /* 보세구역외장치허가수수료 */
+	GYENGBI1_PRMT_NO VARCHAR(19),  /* 허가번호 */
+	GYENGBI1_GOJI_NO VARCHAR(19),  /* 고지번호 */
+	GYENGBI1_IMPOCHG_NO VARCHAR(20),  /* 수입대체경비관련번호 */
+	PRIMARY KEY (
+			GYENGBI1_TONGJI_NO ASC, 
+			GYENGBI1_LAN ASC
+		)
+);
+

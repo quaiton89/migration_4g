@@ -1,0 +1,26 @@
+
+/* 송신_수출동기화요청서 */
+
+DROP TABLE IF EXISTS CUSDMR5TG;
+
+
+/* 송신_수출동기화요청서 */
+CREATE TABLE CUSDMR5TG (
+	TG_REQSINGONO VARCHAR(16) NOT NULL,  /* 수출신고번호 */
+	TG_REQCHASU VARCHAR(5) NOT NULL,  /* 요청차수 */
+	TG_REQDATE VARCHAR(8),  /* 요청일자 */
+	TG_APPRCODE VARCHAR(5),  /* 신청관세사부호 */
+	TG_REQSAYU VARCHAR(100),  /* 요청사유 */
+	TG_SENDRESULT VARCHAR(4),  /* 송신결과 */
+	TG_RECVRESULT VARCHAR(4),  /* 수신결과 */
+	TG_JUBSUDATE VARCHAR(8),  /* 접수일자 */
+	TG_LICENSEDATE VARCHAR(8),  /* 면허일자 */
+	TG_LASTEDITDATETIME VARCHAR(16),  /* 수정일시 */
+	TG_FAXSEND CHAR(1),  /* 팩스전송결과 */
+	TG_WEBSEND CHAR(1),  /* 웹전송여부 */
+	TG_SAVECHK CHAR(1), /* 검증여부 */
+	PRIMARY KEY NONCLUSTERED (
+			TG_REQSINGONO ASC, 
+			TG_REQCHASU ASC
+		)
+)ENGINE=MyISAM DEFAULT CHARSET=euckr;

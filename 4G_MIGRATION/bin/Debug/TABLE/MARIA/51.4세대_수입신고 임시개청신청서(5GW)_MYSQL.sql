@@ -1,0 +1,68 @@
+
+/* 송신_수입임시개청신청 공통사항 */
+
+DROP TABLE IF EXISTS IMGAE1;
+
+
+/* 송신_수입임시개청신청 공통사항 */
+CREATE TABLE IMGAE1 (
+	IMGAE1_KEY VARCHAR(11) NOT NULL,  /* 관리번호 */
+	IMGAE1_TCANO VARCHAR(5),  /* 신고번호 신고인부호 */
+	IMGAE1_YEAR VARCHAR(4),  /* 신고번호 년도 */
+	IMGAE1_JECHL_NO VARCHAR(5),  /* 신고번호 제출번호 */
+	IMGAE1_SIN_DATE VARCHAR(8),  /* 신청일자 */
+	IMGAE1_START_TIME VARCHAR(12),  /* 희망 시작일시 */
+	IMGAE1_END_TIME VARCHAR(12),  /* 희망 종료일시 */
+	IMGAE1_SEGWAN CHAR(3),  /* 세관 */
+	IMGAE1_GWA CHAR(2),  /* 과 */
+	IMGAE1_SIN_SANGHO VARCHAR(50),  /* 신청인 상호 */
+	IMGAE1_SIN_NAME VARCHAR(50),  /* 신청인 성명 */
+	IMGAE1_SIN_TEL VARCHAR(40),  /* 신청인 전화번호 */
+	IMGAE1_SAYU TEXT,  /* 신청사유 */
+	IMGAE1_SAVE_GBN CHAR(1),  /* 검증 여부 */
+	IMGAE1_SEND_GBN VARCHAR(4),  /* 전송결과 */
+	IMGAE1_RECV_GBN VARCHAR(4),  /* 수신결과 */
+	IMGAE1_DD_BUHO VARCHAR(6),  /* 세관담당자부호 */
+	IMGAE1_DD_NAME VARCHAR(12),  /* 세관담당자 성명 */
+	IMGAE1_JUBSU_DATE VARCHAR(8),  /* 접수번호 */
+	WEB_SEND CHAR(1), /* 웹전송구분 */
+	PRIMARY KEY (
+			IMGAE1_KEY ASC
+		)
+)ENGINE=MyISAM DEFAULT CHARSET=euckr;
+
+
+/* IMGAE1_JECHL_IDX */
+CREATE INDEX IMGAE1_JECHL_IDX ON IMGAE1 (
+	IMGAE1_YEAR ASC, 
+	IMGAE1_JECHL_NO ASC
+);
+
+/* IMGAE1_DATE_IDX */
+CREATE INDEX IMGAE1_DATE_IDX ON IMGAE1 (
+	IMGAE1_SIN_DATE ASC
+);
+
+
+/* 송신_수입임시개청신청 란사항 */
+
+DROP TABLE IF EXISTS IMGAE2;
+
+
+/* 송신_수입임시개청신청 란사항 */
+CREATE TABLE IMGAE2 (
+	IMGAE2_KEY VARCHAR(11) NOT NULL,  /* 관리번호 */
+	IMGAE2_CNT CHAR(3) NOT NULL,  /* 순번 */
+	IMGAE2_SINGO_NO VARCHAR(14),  /* 수입신고번호 */
+	IMGAE2_MRN_NO VARCHAR(18),  /* 화물관리번호 */
+	IMGAE2_PUM VARCHAR(50),  /* 품명및규격 */
+	IMGAE2_GWASE_USD FLOAT,  /* 과세가격 미화 */
+	IMGAE2_POJANG_SU FLOAT,  /* 총포장개수 */
+	IMGAE2_JUNG FLOAT,  /* 총중량 */
+	IMGAE2_JANGCHI VARCHAR(8),  /* 장치장소 부호 */
+	IMGAE2_NAPSE_SANGHO VARCHAR(50), /* 납세자 상호 */
+	PRIMARY KEY (
+			IMGAE2_KEY ASC, 
+			IMGAE2_CNT ASC
+		)
+)ENGINE=MyISAM DEFAULT CHARSET=euckr;

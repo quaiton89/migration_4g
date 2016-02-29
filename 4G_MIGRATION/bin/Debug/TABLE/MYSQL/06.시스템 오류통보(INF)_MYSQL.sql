@@ -1,0 +1,23 @@
+
+/* 수신_관세청시스템오류통보내역 */
+
+DROP TABLE IF EXISTS SYSTEMERR;
+ 
+/* 수신_관세청시스템오류통보내역 */
+CREATE TABLE SYSTEMERR (
+	TEXT_GUBUN CHAR(9) NOT NULL,  /* 송신전자문서구분자 */
+	JECHL_NO VARCHAR(50) NOT NULL,  /* 제출번호 */
+	TONGBO_DATE VARCHAR(14) NOT NULL,  /* 통보일시 */
+	ERRORSECTIONID1 VARCHAR(80),  /* 오류내역 */
+	ERROR_CONTENT1 TEXT,  /* 오류내역설명 */
+	ERRORSECTIONID2 VARCHAR(80),  /* 오류상세내용 */
+	ERROR_CONTENT2 VARCHAR(100),  /* 오류상세내용설명 */
+	SUSIN_DATE VARCHAR(14),  /* 수신일시 */
+	ERROR_MSGID VARCHAR(50),  /* 오류발생 메시지ID */
+	ERROR_CONTENTID VARCHAR(36), /* 오류발생 컨텐트ID */
+	PRIMARY KEY (
+			TEXT_GUBUN ASC, 
+			JECHL_NO ASC, 
+			TONGBO_DATE ASC
+		)
+);

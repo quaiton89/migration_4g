@@ -1,0 +1,28 @@
+
+/* 송신_수입신고동기화요청서 */
+
+DROP TABLE IF EXISTS CUSDMR5TE;
+
+
+/* 송신_수입신고동기화요청서 */
+CREATE TABLE CUSDMR5TE (
+	TE_REQSINGONO VARCHAR(16) NOT NULL,  /* 수입신고번호 */
+	TE_REQCHASU VARCHAR(5) NOT NULL,  /* 요청차수 */
+	TE_REQDATE VARCHAR(8) NOT NULL,  /* 요청일자 */
+	TE_APPRCODE VARCHAR(5),  /* 요청관세사부호 */
+	TE_REQSAYU TEXT,  /* 요청사유 */
+	TE_BIZNO VARCHAR(13),  /* 납세자사업자번호 */
+	TE_SENDRESULT VARCHAR(4),  /* 송신결과 */
+	TE_RECVRESULT VARCHAR(4),  /* 수신결과 */
+	TE_JUBSUDATE VARCHAR(8),  /* 접수일자 */
+	TE_LICENSEDATE VARCHAR(8),  /* 면허일자 */
+	TE_LASTEDITDATETIME VARCHAR(16),  /* 수정일시 */
+	TE_FAXSEND CHAR(1),  /* 팩스전송결과 */
+	TE_WEBSEND CHAR(1),  /* 웹전송여부 */
+	TE_SAVECHK CHAR(1), /* 검증여부 */
+	PRIMARY KEY (
+			TE_REQSINGONO ASC, 
+			TE_REQCHASU ASC,
+			TE_REQDATE ASC
+		)
+);

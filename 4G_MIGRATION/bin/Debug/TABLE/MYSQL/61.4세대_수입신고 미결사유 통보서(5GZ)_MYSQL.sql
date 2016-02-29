@@ -1,0 +1,42 @@
+
+/* 수신_수입미결사유통보 공통 */
+
+DROP TABLE IF EXISTS IMMIGYEL;
+
+
+/* 수신_수입미결사유통보 공통 */
+CREATE TABLE IMMIGYEL (
+	MIGYEL_YEAR VARCHAR(4) NOT NULL,  /* 년도 */
+	MIGYEL_JECHL_NO VARCHAR(6) NOT NULL,  /* 제출번호 */
+	MIGYEL_CHK_DG CHAR(1),  /* 체크디지트 */
+	MIGYEL_TCANO VARCHAR(5),  /* 관세사부호 */
+	MIGYEL_SEGWAN CHAR(3),  /* 세관 */
+	MIGYEL_GWA CHAR(2),  /* 과 */
+	MIGYEL_TONGBO_DATE VARCHAR(14),  /* 통지일시 */
+	MIGYEL_DAMDANG VARCHAR(12),  /* 담당자 */
+	MIGYEL_SAYU VARCHAR(50), /* 미결사유 */
+	PRIMARY KEY (
+			MIGYEL_YEAR ASC, 
+			MIGYEL_JECHL_NO ASC
+		)
+);
+
+
+/* 수신_수입미결사유통보 상세 */
+
+DROP TABLE IF EXISTS IMMIGYEL2;
+
+
+/* 수신_수입미결사유통보 상세 */
+CREATE TABLE IMMIGYEL2 (
+	MIGYEL_YEAR VARCHAR(4) NOT NULL,  /* 년도 */
+	MIGYEL_JECHL_NO VARCHAR(6) NOT NULL,  /* 제출번호 */
+	SEQ_NO FLOAT NOT NULL,  /* 일련번호 */
+	MIGYEL_SAYU CHAR(2),  /* 미결사유 */
+	MIGYEL_SAYU_DTL TEXT, /* 미결사유상세 */
+	PRIMARY KEY (
+			MIGYEL_YEAR ASC, 
+			MIGYEL_JECHL_NO ASC, 
+			SEQ_NO ASC
+		)
+);
